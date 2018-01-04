@@ -2,29 +2,39 @@
 :data-uri:
 :toc2:
 
-== App Dev in the Cloud - Agile Cloud Integration with Destinasia
+== App Dev in the Cloud - Process Driven Travel Agency
 
 :numbered:
 
 == Overview
 
+Short description: Process driven travel booking application on OCP
+
+Long description: Ready to get hands-on with AppDev in the Cloud with container based process driven
+solution? This workshop will let you experience the wonders of Red Hat's open technologies for cloud-based
+container application development, letting you integrate multiple services, business rules, user tasks and
+more into a process driven cloud solution. In this workshop you'll explore and run a travel agencies online
+booking application and unique front end application. You'll be given the OpenShift Container Platform, then
+installing JBoss BPM Suite to work with the booking projects rules, processes, task forms, data model and
+more. After building and deploying the process driven application, you'll use a web front end to connect to
+the process application through a REST API, sending a booking and verifying the process execution.
+
 . This demonstration showcases the following:
 
-* Deploying a multi-layered, agile integration services application on OpenShift Container Platform.
-* Deploying JBoss BRMS product with business rules project, exploring and testing business logic.
-* Using Ansible playbooks to deploy xPaaS container-based services.
-* Using Ansible playbooks to deploy web services in containers (PHP, .Net and Java).
-* Using Ansible playbook to deploy xPaaS integration service in a container.
-* Testing complete application by submitting RestAPI call to application.
+* Deploying a multi-layered, process driven application on OpenShift Container Platform.
+* Deploying JBoss BPM Suite product with process project, exploring and testing processes.
+* Demonstrating use of BPM compensation features (roll-back) in JBoss BPM Suite.
+* Deploying services for use in process driven application.
+* Deploying a web front-end UI that leverages BPM REST APIs.
 
 . Goal
 
-* Deploy a complex agile integration application in the Cloud.
-* Test integration application with a REST client.
+* Deploy a complex process driven application in the Cloud.
+* Deploy and use frond end application functioning as a REST client.
 
 . Prerequisites
 
-* A basic understanding of OpenShift, JBoss BRMS and Ansible playbooks.
+* A basic understanding of OpenShift, JBoss BPM Suite.
 
 Current versions of products used:
 
@@ -33,11 +43,7 @@ Current versions of products used:
 |Product |Version 
 |`OpenShift Container Platform` |`3.6`
 |`JBoss EAP` |`7.0`
-|`JBoss BRMS` |`6.4`
-|`xPaaS Decision Server` |`6.4`
-|`PHP` |`7.0`
-|`.NET Core` |`2.0`
-|`xPaaS Fuse Integration Service (FIS)` |`2.0`
+|`JBoss BPM Suite` |`6.4`
 |=======
 
 === Environment
@@ -52,7 +58,6 @@ The demo environment consists of the following systems:
 |`node01.example.com`  |`192.168.0.11` | Node 01
 |`node02.example.com`  |`192.168.0.12` | Node 02
 |`node03.example.com`  |`192.168.0.13` | Node 03
-|`cmfe.example.com`    |`192.168.0.50` | Cloudforms
 |=======
 
 
@@ -64,7 +69,7 @@ NOTE: HAProxy is running on the *workstation* machine.  This provides a level of
 
 . Go to *Services -> Catalogs -> Service Catalogs*.
 
-. Under *All Services -> AppDev in the Cloud*, select *Agile Cloud Integration with Destinasia*.
+. Under *All Services -> AppDev in the Cloud*, select *Process Driven Travel Agency*.
 
 . On the right, click *Order*.
 
@@ -103,14 +108,14 @@ You can also find these URLs in the email you received when you provisioned the 
 
 . Nothing has been installed yet, so no projects have been created yet. You'll do this soon.
 
-=== Access the Destinasia project on workstation (Bastion host)
+=== Access the Travel Agency project on workstation (Bastion host)
 
 The project you're using to install the various services that make up the Destinasia application are located on this host.
 To access it will require you ssh into as the root user:
 
  $ ssh root@workstation-<YOUR-GUID>.rhpds.opentlc.com
 
- $ cd rhcs-destinasia-rules-demo
+ $ cd rhcs-travel-agency-demo
 
 Here you will find the following structure:
 
@@ -122,7 +127,7 @@ Here you will find the following structure:
 * support/
 
 You can browse the Readme.md file for details of the contents, but for now you only need to take the first step.
-You will be installing the first container, with JBoss BRMS.
+You will be installing the first container, with JBoss BPM Suite.
 
 === Build and deploy JBoss BRMS with travel discount rules project
 
@@ -143,140 +148,194 @@ deployments in the rest of this lab. For more details select the 'Monitoring' ta
 
 The 'init.sh' running in the console will finish with output like this:
 
- =============================================================================
- =                                                                           =
- =  Login to JBoss BRMS to start developing rules projects, something like:  =
- =                                                                           =
- =  http://workstation-<YOUR-GUID>.rhpds.opentlc.com:8080/business-central   =
- =                                                                           =
- =  [ u:erics / p:jbossbrms1! ]                                              =
- =                                                                           =
- =  Note: it takes a few minutes to expose the service...                    =
- =                                                                           =
- =============================================================================
+ ===================================================================================
+ =                                                                                 =
+ =  Login to JBoss BRMS to start developing rules projects, something like:        =
+ =                                                                                 =
+ =   http://workstation-<YOUR-GUID>.rhpds.opentlc.com:8080/business-central        =
+ =                                                                                 =
+ =   [ u:erics / p:jbossbrms1! ]                                                   =
+ =                                                                                 =
+ =  Access the online Travel Agnecy booking web application at:                    =
+ =                                                                                 =
+ =   http://workstation-<YOUR-GUID>.rhpds.opentlc.com/external-client-ui-form-1.0  =
+ =                                                                                 =
+ =  Note: it takes a few minutes to expose the service...                          =
+ =                                                                                 =
+ ===================================================================================
 
 Note: An online step-by-step lab is available, see this for details and screenshots of
 this installation:
 
-`https://appdevcloudworkshop.github.io/lab02.html`
+`https://bpmworkshop.github.io/travelagency-bpmworkshop/lab01.html`
 
-==== Explore the Destinasia discount rules project
+==== Explore the Travel Agency process project
 View online step-by-step lab for this section of the workshop containing details and screenshots for
 exploring the project:
 
-`https://appdevcloudworkshop.github.io/lab03.html`
+`https://bpmworkshop.github.io/travelagency-bpmworkshop/lab01.html`
+
+=== Explore the Travel Agency domain model
+In the project 'Authoring' -> 'Project Authoring', locate the domain model in the 'Project Explorer' on the right,
+browsing down into the project to '<default>.org.specialtripsagency'. A menu entry in 'Project Explorer' appears
+titled 'Data Objects', click to drop-down the objects:
+
+ * Applicant
+
+ * BookingObject
+
+ * Flight
+
+ * Hotel
+
+ * PaymentDetails
+
+ * Rejection
+
+ * TravelDetails
+
+Explore these object to get an idea of what the domain modeller looks like and what's
+in this project.
+
+Note: An online step-by-step lab is available showing how the domain model was created, details and screenshots:
+
+`https://bpmworkshop.github.io/travelagency-bpmworkshop/lab03.html`
 
 
-=== Ansible playbooks for container deployment automation
-The backend services for Destinasia are deployed using Ansible automation toolling, specifically Ansible
-playbooks. They are found in the following directory:
+=== Explore the Travel Agency data validation guided rules
+In the project 'Authoring' -> 'Project Authoring', locate the guided rules in the 'Project Explorer' on the right,
+browsing to the project '<default>' level. Various drop-down menus appear in 'Project Explorer'. Click on 'Guided
+Rules' to open the list of rules.
 
- $ cd support/playbooks/deploy-ocp-services
+Explore these and feel free to create a new one based on an existing or follow one of the online step-by-step
+instructions showing how these rules were created, details and screenshots:
 
-You will find the playbooks wrapped into individual scripts:
-
- - ansible-playbook-dotnetservice.sh
- - ansible-playbook-fuseservice.sh
- - ansible-playbook-javaservice.sh
- - ansible-playbook-phpservice.sh
- - ansible-playbook-ruleservice.sh
-
-==== Deploy xPaaS rule service
-Run the wrapper to leverage Ansible playbook for deployment of an xPaaS decision server that extracts the
-business rules from the previously installed container:
-
- $ ./ansible-playbook-ruleservice.sh
-
-If you followed the first steps to setup the Destinasia Travel Rules on OpenShift Container Platform,
-the following will install the Travel Discount ruleservice now...
-
-In the OpenShift console you can watch the deployment unfold in the project 'appdev-in-cloud'.
-
-Note: An online step-by-step lab is available, see this for details and screenshots of
-this installation:
-
-`https://appdevcloudworkshop.github.io/lab04.html`
+`https://bpmworkshop.github.io/travelagency-bpmworkshop/lab04.html`
 
 
-==== Deploy Java flight service
-Run the wrapper to leverage Ansible playbook for deployment of a Java flight reservation web service:
+=== Explore the Travel Agency data validation technical rules (coming soon...)
+In the project 'Authoring' -> 'Project Authoring', locate the technical rules in the 'Project Explorer' on the right,
+browsing to the project '<default>' level. Various drop-down menus appear in 'Project Explorer'. Click on 'DRL'
+(Drools Rule Language) to open the list of technical rules.
 
- $ ./ansible-playbook-javaservice.sh
+ * CalculateTotalPriceBasedOnDiscountProvided
 
-If you followed the first steps to setup the Destinasia Travel Rules on OpenShift Container Platform,
-the following will install the Flights javaservice now...
+ * ObjectValidation
 
-In the OpenShift console you can watch the deployment unfold in the project 'appdev-in-cloud'.
+Explore these and feel free to create a new one based on an existing or follow one of the online step-by-step
+instructions showing how these rules were created, details and screenshots:
 
-Note: An online step-by-step lab is available, see this for details and screenshots of
-this installation:
+`https://bpmworkshop.github.io/travelagency-bpmworkshop/lab05.html`
 
-`https://appdevcloudworkshop.github.io/lab05.html`
 
-==== Deploy .Net car service
-Run the wrapper to leverage Ansible playbook for deployment of a .Net car rental web service:
+=== Explore the Travel Agency guided decision table (coming soon...)
 
- $ ./ansible-playbook-dotnetservice.sh
+=== Explore the Travel Agency user task forms (coming soon...)
 
-If you followed the first steps to setup the Destinasia Travel Rules on OpenShift Container Platform,
-the following will install the Car dotnetservice now...
+=== Explore the Travel Agency business processes (coming soon...)
 
-In the OpenShift console you can watch the deployment unfold in the project 'appdev-in-cloud'.
+=== Explore the Travel Agency external web front-end application (coming soon...)
 
-Note: An online step-by-step lab is available, see this for details and screenshots of
-this installation:
+=== Running the Travel Agency booking application
+After touring all the parts of this process driven application, it's time to build and deploy it for use. This
+can be done by going to the project using menus 'Authoring' -> 'Project Authoring' -> clicking on button within
+the 'Project Explorer' labelled 'Open Project Editor'. The project details are opened in the right pane. Open the
+'Build' menu in the top right corner by clicking on it, choose 'Build & Deploy' and you should se a green pop-up
+after a bit that states 'Build successful'.
 
-`https://appdevcloudworkshop.github.io/lab06.html`
+View the deployed process project by clicking on 'Process Management' -> 'Process Definitions' and locate the
+three processes that should be ready for use:
 
-==== Deploy PHP hotel service
-Run the wrapper to leverage Ansible playbook for deployment of a PHP hotel reservation web service:
+ * specialtripsagencyprocess
 
- $ ./ansible-playbook-phpservice.sh
+ * calculatepriceprocess
 
-If you followed the first steps to setup the Destinasia Travel Rules on OpenShift Container Platform,
-the following will install the Hotel phpservice now...
+ * compensateService
 
-In the OpenShift console you can watch the deployment unfold in the project 'appdev-in-cloud'.
+To start submitting a travel booking, open the front-end web UI in a separate browser tab:
 
-Note: An online step-by-step lab is available, see this for details and screenshots of
-this installation:
+ `http://workstation-<YOUR-GUID>.rhpds.opentlc.com/external-client-ui-form-1.0`
 
-`https://appdevcloudworkshop.github.io/lab07.html`
+Fill in the following fields with data:
 
-==== Deploy Fuse agile integration service
-Run the wrapper to leverage Ansible playbook for deployment of a Fuse xPaaS integration service:
+ * Applicant Name:  [your-name]
 
- $ ./ansible-playbook-fuseservice.sh
+ * Email Address:  [any-email]
 
-If you followed the first steps to setup the Destinasia Travel Rules on OpenShift Container Platform,
-the following will install the integration  now...
+ * Number of Travellers:  2
 
-In the OpenShift console you can watch the deployment unfold in the project 'appdev-in-cloud'.
+ * From Destination: London
 
-Note: this container takes the longest to fully build and deploy due to extensive Maven dependency downloads that need
-to complete before the integration service can build. Watch the container log for realtime progress found in the
-OpenShift console:
+ * To Destination: Edinburgh
 
- Select project 'appdev-in-cloud' -> locate Application 'fusetravelagency' -> open details of container by clicking
- on the left down arrow -> see log of build progress in bottom right of window that is opened
+ * Preferred Date of Departure: 2018-12-20
 
-Note: An online step-by-step lab is available, see this for details and screenshots of
-this installation:
+ * Preferred Data of Arrival: 2018-12-29
 
-`https://appdevcloudworkshop.github.io/lab08.html`
+ * Other Details / Notes: [any-text]
 
-=== Test application
-Use a browser REST client to ping the xPaaS Fuse endpoint with as explained in the readme file found
-here, just view in console for the details:
+Click on submit button and you'll see the following appear in green as a successful submitted booking:
 
- $ cat support/playbooks/deploy-ocp-services/Readme.md
+  `Thank you for filling out the form. Your request has been processed successfully!`
 
-When the Fuse container has fully deployed, you should get a valid REST response as described in the readme file above.
+  `Your Unique Process ID is: [1]`
 
-Note: An online step-by-step lab is available, see this for details and screenshots of
-this installation:
+  `Our team will get in touch with you shortly with a Quote.`
 
-`https://appdevcloudworkshop.github.io/lab09.html`
+Go back to the JBoss BPM Suite project browser tab and open the process instance list by clicking on the menus
+'Process Management' -> 'Process Instances' and note the default view selects the 'Completed' listing. You'll
+see a completed process 'calculatepriceprocess' which you click on to select, view the details in pane on right,
+then click on button in top right labeled 'Options' -> 'Process Model' to view completed process shown by each
+node being greyed out. Close the process viewer by clicking on the 'OK' button.
+
+In the left pane labeled 'Process Instances', click on the tab 'Active' to view active process instances, note
+your instance 'specialtripsagencyprocess' is still running, but in what state is it? Click on it to select and
+view the details in the right pane, noting that it's 'Instance State: Active'. Let's get a visual indication of
+where the process is at by clicking on button in top right labeled 'Options' -> 'Process Model' to view the model,
+noting that it's waiting in 'Employee Booking' node shown outlined in red, which is a user task. Let's go claim
+that task and complete the work before submitting it. Close the process viewer by clicking on the 'OK' button.
+
+Open the user task list by clicking on the 'Task' menu item at the top. An entry labeled 'Employee Booking' is
+waiting for someone to claim it. Do this by clicking on the 'Claim' button, this opens the Employee Booking user
+task form in the pane on the right, with fields containing process data for review. You have three options at the
+bottom of the form:
+
+ * Option 1 - Send for review (sending it back to management review)
+
+ * Option 2 - Booking confirmed (accept and pass onwards)
+
+ * Option 3 - Booking cancelled (reject booking)
+
+We'll be accepting the booking so filling in the fields for 'Option 2':
+
+ * check the box to confirm the booking
+
+ * Credit Card: 1111111111 (note any card starting with 1234****** will
+ cause the compensation feature to roll back the booking later in the process.
+
+ * Expiry Date (MM/YY):  08/20
+
+ * Name of CC Holder:  [your-name]
+
+Click on the 'Complete' button at the bottom of the form to finish this task.
+
+Now to view the process instance and see that it has completed, open the process instance list by clicking
+on the menus 'Process Management' -> 'Process Instances' and see the 'Active' listing is now empty. Select
+the 'Completed' tab to find your three completed process instances. Click on 'specialtripsagencyprocess' to
+select and view the details in the right pane, noting that it's 'Instance State: Completed'. Let's get a
+visual indication of where the process is at by clicking on button in top right labeled 'Options' ->
+'Process Model' to view the model, noting that it's greyed out path is all the way to 'Booking completed'
+end state.
+
+Now you are capable of searching for the completed process 'compensateService' and viewing the path it took
+to its completed state, do that now. Note that it booked hotels and flights before charging the credit card
+and sending an email before ending in 'Payment received' state.
+
+You have now submitted a successful travel booking! Now go back and start a new instance where you take
+different actions, like rejecting a travel booking, or paying with a credit card using the number 1234111111.
+
+Have fun!
+
 
 == Conclusion
 This concludes the demo workshop for this AppDev in the Cloud example application.

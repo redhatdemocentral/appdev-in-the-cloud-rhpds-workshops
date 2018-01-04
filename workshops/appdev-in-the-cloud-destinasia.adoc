@@ -8,6 +8,20 @@
 
 == Overview
 
+Short description: Agile cloud integration with 6 container solution on OCP
+
+Long description: Ready to get hands-on with AppDev in the Cloud with container based services? This
+workshop will let you experience the wonders of Red Hat's open technologies for cloud-based container
+application development, letting you integrate multiple services in to a polyglot cloud solution. In
+this workshop you're a developer working for Destinaisa, a travel agency that needs to setup its online
+bookings applications backend services. You'll be given the OpenShift Container Platform, then installing
+JBoss BRMS to work in the Destinasia discount rules. Once they are completed, you leverage Ansible playbooks
+to see infrastructure automation in action. Each playbook will deploy a new container based service to
+support flight, hotel, car and discount rule queries from your application. In total you will be running
+6 container based applications or services in a private PaaS before testing this solution with a REST
+client, sending a booking and verifying the discounts provided by the rules you implemented.
+
+
 . This demonstration showcases the following:
 
 * Deploying a multi-layered, agile integration services application on OpenShift Container Platform.
