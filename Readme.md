@@ -15,14 +15,14 @@ It's an ongoing project that will continue to add more example workshops as they
 
 #### Agile Integration with Destinasia
 
-Workshop documentation for using the RHPDS demo instructions, [start here](appdev-in-the-cloud-destinasia.adoc).
+Workshop documentation for using the RHPDS demo instructions, [start here](workshops/appdev-in-the-cloud-destinasia.adoc).
 
 
 ### Workshop:
  
 #### Process Driven Travel Agency with Bookings Application
 
-Workshop documentation for using the RHPDS demo instructions, [start here](appdev-in-the-cloud-travel-agency.adoc).
+Workshop documentation for using the RHPDS demo instructions, [start here](workshops/appdev-in-the-cloud-travel-agency.adoc).
 
 
 
