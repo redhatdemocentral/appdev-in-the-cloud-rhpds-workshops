@@ -8,7 +8,8 @@ working on JBoss products, using containers with OpenShift Container Platform an
 exploration of working examples of real life use cases.
 
 Various industries are used for these examples, such as human resources, travel, and financial services.
-It's an ongoing project that will continue to add more example workshops as they are developed.
+It's an ongoing project that will continue to add more example workshops as they are developed. If you want
+to run these workshops on your local machines, just see the projects hosted on [Red Hat Demo Central](https://github.com/redhatdemocentral).
 
 
 ### Workshop:
