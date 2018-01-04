@@ -1,6 +1,6 @@
-#AppDev in the Cloud 
+# AppDev in the Cloud 
 
-##Red Hat Product System Workshops
+## Red Hat Product System Workshops
 
 This is a collection of documentation for Red Hat Product Demo System (RHPDS) workshops based on 
 AppDev in the Cloud stories. They showcase various aspects of being a modern day application developer
@@ -11,16 +11,16 @@ Various industries are used for these examples, such as human resources, travel,
 It's an ongoing project that will continue to add more example workshops as they are developed.
 
 
-###Workshop:
+### Workshop:
 
-####Agile Integration with Destinasia
+#### Agile Integration with Destinasia
 
 Workshop documentation for using the RHPDS demo instructions, [start here](appdev-in-the-cloud-destinasia.adoc).
 
 
-###Workshop:
+### Workshop:
  
-####Process Driven Travel Agency with Bookings Application
+#### Process Driven Travel Agency with Bookings Application
 
 Workshop documentation for using the RHPDS demo instructions, [start here](appdev-in-the-cloud-travel-agency.adoc).
 
