@@ -29,6 +29,4 @@ Workshop documentation for using the RHPDS demo instructions, [start here](works
 
 Releases
 --------
-- v1.1 - Workshop for OpenShift Container Platform v3.6, JBoss BPM Suite, and process driven travel agency booking system.
-
-- v1.0 - Workshop for OpenShift Container Platform v3.6, JBoss BRMS, PHP, .Net Core, xPaaS Decision Server, xPaaS Fuse Integration Service (FIS) and Destinasia travel agency.
+- v1.0 - Workshop for OpenShift Container Platform v3.6, JBoss BRMS, PHP, .Net Core, xPaaS Decision Server, xPaaS Fuse Integration Service (FIS) and Destinasia travel agency. Also added workshop for OpenShift Container Platform v3.6, JBoss BPM Suite, and process driven travel agency booking system.
