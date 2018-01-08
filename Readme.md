@@ -12,11 +12,11 @@ It's an ongoing project that will continue to add more example workshops as they
 to run these workshops on your local machines, just see the projects hosted on [Red Hat Demo Central](https://github.com/redhatdemocentral).
 
 
-### Workshop (click a workshop title to start):
+### Workshops (click a workshop title to start):
 
-#### [Agile Integration with Destinasia](workshops/appdev-in-the-cloud-destinasia.adoc).
+ - [Agile Integration with Destinasia](workshops/appdev-in-the-cloud-destinasia.adoc).
 
-#### [Process Driven Travel Agency with Bookings Application](workshops/appdev-in-the-cloud-travel-agency.adoc).
+ - [Process Driven Travel Agency with Bookings Application](workshops/appdev-in-the-cloud-travel-agency.adoc).
 
 
 Releases
