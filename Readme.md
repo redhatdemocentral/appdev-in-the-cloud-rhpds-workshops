@@ -14,9 +14,9 @@ to run these workshops on your local machines, just see the projects hosted on [
 
 ### Workshops (click a workshop title to start):
 
- - [Agile Integration with Destinasia](workshops/appdev-in-the-cloud-destinasia.adoc).
+ - [**Agile Integration with Destinasia**](workshops/appdev-in-the-cloud-destinasia.adoc)
 
- - [Process Driven Travel Agency with Bookings Application](workshops/appdev-in-the-cloud-travel-agency.adoc).
+ - [**Process Driven Travel Agency with Bookings Application**](workshops/appdev-in-the-cloud-travel-agency.adoc).
 
 
 Releases
