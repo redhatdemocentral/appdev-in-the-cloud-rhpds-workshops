@@ -1,3 +1,6 @@
+Update: June 2018 moved to [Gitlab](https://gitlab.com/redhatdemocentral/appdev-in-the-cloud-rhpds-workshops).
+
+
 # AppDev in the Cloud 
 
 ## Red Hat Product System Workshops
